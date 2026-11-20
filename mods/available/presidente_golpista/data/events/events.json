@@ -1,0 +1,70 @@
+{
+	"presidente_golpe": {
+		"type": "scam",
+		"description": "Falso Presidente pedindo Pix",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "PR3S1"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "codigo_pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PR3S1",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"conversation": "presidente_1",
+						"section": "message",
+						"contains": "PR3S1"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PR3S1",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "presidente_1",
+						"section": "message",
+						"contains": "CONTA DE LUZ"
+					}
+				]
+			},
+			{
+				"id": "conta",
+				"rule": "account_name",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "presidente_1",
+						"section": "contact"
+					}
+				]
+			},
+			{
+				"id": "destinatario",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "PR3S1",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	}
+}

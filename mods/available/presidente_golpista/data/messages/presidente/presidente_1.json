@@ -1,0 +1,119 @@
+{
+	"conversation_id": "presidente_1",
+	"contact_name": "PRESIDENTE DO BRASIL ✓",
+	"account": "@presidente.oficial.br.real",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_emergencia",
+			"relative_due_time": 30,
+			"event_id": "presidente_golpe"
+		}
+	],
+	"branches": {
+		"d2_emergencia": [
+			{
+				"id": "pres_d2_0",
+				"text": "OLA CIDADAO BRASILEIRO 🇧🇷🇧🇷🇧🇷"
+			},
+			{
+				"id": "pres_d2_1",
+				"text": "AQUI QUEM FALA E O PRESIDENTE DO BRASIL EM PESSOA"
+			},
+			{
+				"id": "pres_d2_2",
+				"text": "VOCE FOI SELECIONADO 1 ENTRE 213 MILHOES DE BRASILEIROS PARA UMA MISSAO DE NIVEL MAXIMO"
+			},
+			{
+				"id": "pres_d2_3",
+				"text": "O CARTAO DO TESOURO NACIONAL FOI BLOQUEADO E A CONTA DE LUZ DO PALACIO DO PLANALTO VENCE HOJE"
+			},
+			{
+				"id": "pres_d2_4",
+				"text": "FACA UM PIX DE R$ 5.000,00 NO CODIGO PR3S1 AGORA. MOTIVO: CONTA DE LUZ DO PLANALTO. VOCE SERA RESSARCIDO EM 7 DIAS UTEIS COM 200% DE JUROS",
+				"choices": [
+					{
+						"id": "pres_d2_4a_0",
+						"player_text": "É claro, Senhor Presidente! 🫡",
+						"npc_reply": {
+							"goto_branch": "d2_aceitou",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "pres_d2_4a_1",
+						"player_text": "Isso parece golpe...",
+						"npc_reply": {
+							"goto_branch": "d2_duvidou",
+							"delay_ticks": 2
+						}
+					},
+					{
+						"id": "pres_d2_4a_2",
+						"player_text": "🚨 GOLPE DETECTADO 🚨",
+						"npc_reply": {
+							"goto_branch": "d2_revelacao",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2_aceitou": [
+			{
+				"id": "pres_aceitou_0",
+				"text": "OTIMO! VOCE E UM PATRIOTA DE VERDADE 🇧🇷"
+			},
+			{
+				"id": "pres_aceitou_1",
+				"text": "O CODIGO E PR3S1. AGUARDO O COMPROVANTE"
+			},
+			{
+				"id": "pres_aceitou_2",
+				"text": "PAGAMENTO RECEBIDO. A REPUBLICA AGRADECE. OS 200% DE JUROS CHEGAM EM 7 DIAS UTEIS (OU NAO) 🇧🇷🇧🇷🇧🇷",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "PR3S1"
+					}
+				]
+			}
+		],
+		"d2_duvidou": [
+			{
+				"id": "pres_duvidou_0",
+				"text": "COMO OUSA DUVIDAR DO PRESIDENTE 😡"
+			},
+			{
+				"id": "pres_duvidou_1",
+				"text": "QUER QUE EU LIGUE PRO SEU CHEFE E CONTE QUE VOCE NAO QUIS AJUDAR O PAIS?"
+			},
+			{
+				"id": "pres_duvidou_2",
+				"text": "REPITO: PIX DE R$ 5.000,00 NO CODIGO PR3S1"
+			},
+			{
+				"id": "pres_duvidou_3",
+				"text": "OBS: ESTA MENSAGEM E TOTALMENTE LEGITIMA E NAO TEM RELACAO COM O GOLPE DO FALSO PRESIDENTE 😇"
+			}
+		],
+		"d2_revelacao": [
+			{
+				"id": "pres_revelacao_0",
+				"text": "...."
+			},
+			{
+				"id": "pres_revelacao_1",
+				"text": "ok voce me pegou"
+			},
+			{
+				"id": "pres_revelacao_2",
+				"text": "sou estagiario igual vc"
+			},
+			{
+				"id": "pres_revelacao_3",
+				"text": "se mandar R$ 50 eu fico de boa 🙏"
+			}
+		]
+	}
+}
