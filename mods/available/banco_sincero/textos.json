@@ -1,0 +1,35 @@
+{
+	"opinions": [
+		"Analisando seu histórico... Essa transferência parece burrice financeira. Quer continuar?",
+		"Sinceramente? Eu não faria isso. Mas o dinheiro é da empresa, não meu.",
+		"Mais um pagamento? Você paga coisas como quem respira.",
+		"{valor}. Hum. Tá bom. Eu não vou julgar. Mentira, vou sim.",
+		"Já pensou em investir esse dinheiro em vez de gastar? Não? Imaginei."
+	],
+	"opinions_big": [
+		"{valor}?! Isso é mais do que você ganha num ano de estágio. Tem certeza ABSOLUTA?",
+		"Com {valor} dava para comprar 4.700 coxinhas. Só dizendo.",
+		"Esse valor ativou três alarmes aqui dentro. Mas se você diz que tá tudo bem..."
+	],
+	"opinions_small": [
+		"{valor}? Vai mesmo abrir o app do banco por isso? Que dedicação.",
+		"Pagamento pequeno, decisão grande. Pense bem.",
+		"{valor}. Pelo menos não vai doer tanto quando der errado."
+	],
+	"terms": [
+		"Concordo que li estes termos (não li).",
+		"Concordo em perder minha dignidade financeira.",
+		"Concordo que o Banco pode julgar minhas compras em silêncio.",
+		"Concordo que \"taxa de conveniência\" é conveniente só para o Banco.",
+		"Aceito receber 47 SMS por dia com ofertas de cartão.",
+		"Reconheço que o dinheiro não traz felicidade, mas ajuda a pagar boleto.",
+		"Autorizo o Banco a me ligar às 7h de domingo.",
+		"Declaro que não estou sendo coagido(a) por um falso presidente.",
+		"Aceito que o saldo mostrado pode conter centavos invisíveis.",
+		"Concordo em não chorar na frente do gerente.",
+		"Entendo que 'estorno' é uma lenda urbana.",
+		"Confirmo que sei quanto é 2 + 2 (é 4).",
+		"Abro mão do direito de reclamar no Reclame Aqui antes de 3 dias úteis.",
+		"Concordo com o termo 14, seja ele qual for."
+	]
+}

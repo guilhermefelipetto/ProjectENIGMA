@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.banco_sincero",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Banco Sincero",
+	"description": "Antes de cada pagamento, o Banco dá a opinião sincera dele sobre a sua vida financeira (\"isso parece burrice financeira, quer continuar?\") e depois exige que você concorde com 14 termos diferentes, um por um. Os textos ficam em textos.json.",
+	"main_script": "main.gd"
+}
