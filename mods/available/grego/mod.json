@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.grego",
+	"name": "Celular em Grego",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "Todo texto do jogo passa a ser escrito com letras gregas (\"Μενσαγενς\", \"Κονφιγυραςόες\"). Dá pra ler com esforço. Códigos, valores, emails e o que você digita continuam no nosso alfabeto, então pagar e denunciar funciona igual. O minigame de digitação fica bem mais difícil.",
+	"main_script": "main.gd"
+}
