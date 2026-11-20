@@ -161,6 +161,66 @@ func _step_pesca(body: VBoxContainer) -> void:
 	swim.kill()
 
 
+func _step_assinatura(body: VBoxContainer) -> void:
+	for attempt in 2:
+		_clear(body)
+		body.add_child(ModUI.title("Assinatura digital"))
+		body.add_child(ModUI.label("Assine com o dedo no quadro abaixo." if attempt == 0 else
+			"A assinatura não confere com a do cartório. Assine de novo, igualzinho.", 13,
+			ModUI.MUTED if attempt == 0 else ModUI.WINE))
+		var pad := ColorRect.new()
+		pad.color = Color(0.97, 0.97, 0.94)
+		pad.custom_minimum_size = Vector2(0, 120)
+		pad.set_meta("ink", 0.0)
+		pad.clip_contents = true
+		body.add_child(pad)
+		var line := Line2D.new()
+		line.width = 3
+		line.default_color = ModUI.INK
+		pad.add_child(line)
+		var sign := ModUI.button("Assinar")
+		sign.disabled = true
+		body.add_child(sign)
+		pad.gui_input.connect(func(event: InputEvent) -> void:
+			var drag := event as InputEventMouseMotion
+			if drag and drag.button_mask & MOUSE_BUTTON_MASK_LEFT:
+				if line.get_point_count() > 0:
+					pad.set_meta("ink", pad.get_meta("ink") + line.points[-1].distance_to(drag.position))
+				line.add_point(drag.position)
+				sign.disabled = pad.get_meta("ink") < 120.0
+			elif event is InputEventMouseButton and event.pressed:
+				line.add_point(event.position)
+		)
+		await sign.pressed
+		if not is_instance_valid(body):
+			return
+
+
+func _step_email(body: VBoxContainer) -> void:
+	_clear(body)
+	body.add_child(ModUI.title("Confirme seu email"))
+	var info := ModUI.label("Enviamos um link de confirmação para estagiario@enigma.com.br. "
+		+ "Abra o link e volte aqui.", 13)
+	body.add_child(info)
+	var done := ModUI.button("Já cliquei no link")
+	body.add_child(done)
+	await done.pressed
+	if not is_instance_valid(body):
+		return
+	info.text = "Link expirado (validade: 3 segundos). Enviamos outro."
+	info.add_theme_color_override("font_color", ModUI.WINE)
+	done.disabled = true
+	done.text = "Aguardando o novo email..."
+	await ModUI.wait(self, 4.0)
+	if not is_instance_valid(done):
+		return
+	info.text = "Novo link enviado. Esse vale 5 segundos, corre."
+	info.add_theme_color_override("font_color", ModUI.INK)
+	done.disabled = false
+	done.text = "Já cliquei no link novo"
+	await done.pressed
+
+
 func _step_rosto(body: VBoxContainer) -> void:
 	_clear(body)
 	body.add_child(ModUI.title("Reconhecimento facial"))

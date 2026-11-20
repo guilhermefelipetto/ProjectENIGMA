@@ -1,18 +1,20 @@
 {
 	"id": "felipetto.autenticacao_nivel_maximo",
 	"name": "Autenticação Nível Máximo",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"authors": [
 		"Guilherme Felipetto"
 	],
 	"main_script": "main.gd",
-	"description": "Uma vez por dia, para abrir o Banco: CPF, captcha de imagens que aparecem devagar (3 rodadas), captcha de pesca (pesque o peixe para provar que é humano), reconhecimento facial, prova de vida agendada no cartório e, por fim, um código entregue por pombo-correio. Etapas, rodadas e o tempo do pombo ajustáveis em \"config\".",
+	"description": "Uma vez por dia, para abrir o Banco: CPF, captcha de imagens que aparecem devagar (3 rodadas), captcha de pesca (pesque o peixe para provar que é humano), assinatura digital com o dedo (que não confere da primeira vez), reconhecimento facial, confirmação por email (o link expira), prova de vida agendada no cartório e, por fim, um código entregue por pombo-correio. Etapas, rodadas e o tempo do pombo ajustáveis em \"config\".",
 	"config": {
 		"steps": [
 			"cpf",
 			"captcha",
 			"pesca",
+			"assinatura",
 			"rosto",
+			"email",
 			"cartorio",
 			"pombo"
 		],
