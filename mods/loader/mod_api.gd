@@ -179,10 +179,14 @@ func schedule_messages(
 ## matches: func(text: String) -> bool
 func wrap_labels(matches: Callable) -> void:
 	var tree := _loader.get_tree()
+	# A label taken out of the tree and put back is added again: it is watched once
+	var watched_key := "mod_wrap_labels_%d" % get_instance_id()
 	var watch := func(node: Node) -> void:
-		if node is Label:
+		if node is Label and not node.has_meta(watched_key):
+			node.set_meta(watched_key, true)
 			# A label is drawn again whenever its text changes
-			node.draw.connect(_wrap_label.bind(node, matches), CONNECT_DEFERRED)
+			var label: Label = node
+			node.draw.connect(func() -> void: _wrap_label(label, matches), CONNECT_DEFERRED)
 	connect_signal(tree.node_added, watch)
 	# The labels already on screen
 	for node in tree.root.find_children("*", "Label", true, false):

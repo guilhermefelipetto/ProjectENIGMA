@@ -124,6 +124,17 @@ func _run() -> void:
 	check(contains == "R$ %s,00" % calc.express(1480), "chat e Banco mostram a mesma conta para R$ 1.480")
 	check(gd.format_brl(-58.9).begins_with("-R$ ("), "valor negativo: " + gd.format_brl(-58.9))
 
+	# wrap_labels: um rótulo que sai e volta para a árvore não é conectado duas vezes
+	var label := Label.new()
+	root.add_child(label)
+	root.remove_child(label)
+	root.add_child(label)
+	label.text = "R$ (1 + 2),00"
+	await process_frame
+	await process_frame
+	check(label.autowrap_mode != TextServer.AUTOWRAP_OFF, "rótulo com conta passou a quebrar linha")
+	label.free()
+
 	# --- jogo de verdade, dias 1 a 6
 	var scene: PackedScene = load("res://scenes/game_screen.tscn")
 	for day in range(1, 7):
