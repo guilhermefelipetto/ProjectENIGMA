@@ -1,0 +1,46 @@
+{
+	"openers": [
+		"URGENTE!!!",
+		"Prezado(a) cliente,",
+		"ATENÇÃO:",
+		"Olá querido(a)!!",
+		"OFERTA ESPECIAL:",
+		"Bom dia família 🌹"
+	],
+	"closers": [
+		"Clique no link urgente!!!",
+		"Responda em até 5 minutos!!",
+		"😱😱😱",
+		"💰💰",
+		"Atenciosamente, Equipe OFICIAL.",
+		"(mensagem 100% verdadeira)",
+		"✅✅✅",
+		"kkkkkk"
+	],
+	"swaps": {
+		"você": "vc",
+		"voce": "vc",
+		"não": "naum",
+		"por favor": "pfvr",
+		"obrigado": "obgdo",
+		"obrigada": "obgda",
+		"hoje": "HJ",
+		"agora": "AGORAAA",
+		"pagamento": "pagamento URGENTE",
+		"senha": "s3nha",
+		"compra": "comprinha",
+		"pix": "PIX 💸",
+		"olá": "Oie",
+		"bom": "bão",
+		"dia": "dia abençoado",
+		"fazer": "faze",
+		"está": "tá",
+		"estou": "to",
+		"também": "tbm",
+		"que": "q",
+		"quando": "qnd",
+		"porque": "pq",
+		"favor": "favorzinho",
+		"empresa": "empresa OFICIAL"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.tudo_parece_golpe",
+	"name": "Tudo Parece Golpe",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "As mensagens e os emails VERDADEIROS ganham cara de golpe: português estranho, URGENTE!!!, emoji demais, \"clique no link\". E as compras nas lojas viram boletos de \"AMAZÔNIA OFICIAL DEFINITIVA LTDA\". Os golpes de verdade continuam iguais, e as regras também: quem julgar pela aparência vai denunciar coisa certa. Nomes de contatos, códigos e valores não mudam. Textos em estilo.json.",
+	"main_script": "main.gd"
+}
