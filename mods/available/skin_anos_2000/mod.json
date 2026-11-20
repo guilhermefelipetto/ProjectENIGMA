@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.skin_anos_2000",
+	"name": "Skin Anos 2000",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "O celular vira um computador do começo dos anos 2000: barras de título azuis em degradê, janelas bege-cinza e uma barra de tarefas com o botão verde \"iniciar\", que abre um menu com os aplicativos instalados. O botão Desligar não desliga: há 47 atualizações pendentes.",
+	"main_script": "main.gd"
+}
