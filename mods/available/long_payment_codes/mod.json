@@ -1,0 +1,12 @@
+{
+	"id": "felipetto.long_payment_codes",
+	"name": "Códigos Bancários Longos",
+	"version": "2.0.0",
+	"authors": ["Guilherme Felipetto"],
+	"description": "Todo código de Pix e de boleto passa a ter 120 caracteres, no banco, nas mensagens, nos emails e nas notas. Você TEM que digitar tudo. O começo continua sendo o código original, então a regra de formato ainda pega os golpes (as notas explicam). Códigos gerados durante o jogo (compras nas lojas, boletos dos emails) continuam curtos. O tamanho é ajustável em \"config\".",
+	"priority": 10,
+	"main_script": "main.gd",
+	"config": {
+		"target_length": 120
+	}
+}
