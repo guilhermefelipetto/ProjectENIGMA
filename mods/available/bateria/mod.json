@@ -1,0 +1,17 @@
+{
+	"id": "felipetto.bateria",
+	"name": "Bateria (que apaga o save)",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "O celular agora tem bateria, mostrada no topo da tela. Ela gasta com o relógio do jogo; tocar nela liga o carregador, que tem mau contato e desconecta sozinho. À noite o carregador fraco só recupera uma parte. Se a bateria chegar a zero, o celular apaga e o JOGO SALVO É APAGADO de verdade. Você foi avisado. Ritmo e a opção de apagar o save ajustáveis em \"config\".",
+	"main_script": "main.gd",
+	"config": {
+		"drain_per_minute": 0.25,
+		"charge_per_minute": 0.8,
+		"bad_contact_chance": 0.04,
+		"overnight_charge": 45,
+		"delete_save": true
+	}
+}
