@@ -7,7 +7,7 @@ const World := preload("res://mods/available/blocolandia/world.gd")
 
 const HOTBAR := [
 	Textures.GRASS, Textures.DIRT, Textures.STONE, Textures.LOG, Textures.PLANKS,
-	Textures.LEAVES, Textures.SAND, Textures.GLASS, Textures.BRICK,
+	Textures.LEAVES, Textures.SAND, Textures.GLASS, Textures.BRICK, Textures.TNT,
 ]
 
 var api: ModAPI
@@ -151,7 +151,7 @@ func _hotbar() -> Control:
 		slot.icon = textures.textures[block]
 		slot.expand_icon = true
 		slot.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		slot.custom_minimum_size = Vector2(35, 35)
+		slot.custom_minimum_size = Vector2(31, 31)
 		slot.tooltip_text = Textures.NAMES[block]
 		for state in ["normal", "hover", "pressed", "focus", "hover_pressed"]:
 			var style := StyleBoxFlat.new()
@@ -175,8 +175,11 @@ func _hotbar() -> Control:
 func _update_counts() -> void:
 	if not is_instance_valid(_counts):
 		return
-	_counts.text = "%s • toque no ar para colocar, segure para quebrar\nColocados: %d • Quebrados: %d" % [
-		Textures.NAMES[_world.selected], _stats["placed"], _stats["broken"]]
+	var hint := "toque no ar para colocar, segure para quebrar"
+	if _world.selected == Textures.TNT:
+		hint = "coloque e toque nela para acender"
+	_counts.text = "%s • %s\nColocados: %d • Quebrados: %d" % [
+		Textures.NAMES[_world.selected], hint, _stats["placed"], _stats["broken"]]
 
 
 func _on_clock_tick(_minutes: int, _story: Node) -> void:

@@ -9,6 +9,10 @@ const Textures := preload("res://mods/available/blocolandia/textures.gd")
 const COLS := 15
 const ROWS := 21
 const FALL_SECONDS := 0.06
+const FUSE_SECONDS := 1.6
+## TNT acesa por outra explosão estoura logo depois
+const CHAIN_FUSE_SECONDS := 0.25
+const BLAST_RADIUS := 2.6
 
 ## As células do mundo, linha por linha. É do mod (main.gd): sobrevive a fechar o app
 var blocks: Array
@@ -24,6 +28,11 @@ var _breaking := Vector2i(-1, -1)
 var _break_progress := 0.0
 var _placing := false
 var _fall_timer := 0.0
+## TNT acesa: célula -> segundos até explodir
+var _fuses: Dictionary = {}
+## Clarões das explosões: {center, life}
+var _blasts: Array[Dictionary] = []
+var _shake := 0.0
 ## Farelos de quem quebrou: {position, velocity, color, life}
 var _crumbs: Array[Dictionary] = []
 
@@ -117,6 +126,8 @@ func _gui_input(event: InputEvent) -> void:
 			if get_block(cell) == Textures.AIR:
 				_placing = true
 				_place(cell)
+			elif get_block(cell) == Textures.TNT:
+				_light(cell, FUSE_SECONDS)
 			else:
 				_start_breaking(cell)
 		else:
@@ -128,7 +139,8 @@ func _gui_input(event: InputEvent) -> void:
 		var cell := _cell_at(event.position)
 		if _placing and _inside(cell) and get_block(cell) == Textures.AIR:
 			_place(cell)
-		elif not _placing and cell != _breaking and _inside(cell) and get_block(cell) != Textures.AIR:
+		elif not _placing and cell != _breaking and _inside(cell) \
+				and not get_block(cell) in [Textures.AIR, Textures.TNT]:
 			_start_breaking(cell)
 		accept_event()
 
@@ -136,6 +148,34 @@ func _gui_input(event: InputEvent) -> void:
 func _place(cell: Vector2i) -> void:
 	set_block(cell, selected)
 	stats["placed"] += 1
+	counts_changed.emit()
+
+
+func _light(cell: Vector2i, seconds: float) -> void:
+	if not _fuses.has(cell):
+		_fuses[cell] = seconds
+
+
+## Tudo num raio vira ar (menos a rocha-mãe), e outras TNTs no caminho acendem
+func _explode(center: Vector2i) -> void:
+	set_block(center, Textures.AIR)
+	var reach := ceili(BLAST_RADIUS)
+	for dy in range(-reach, reach + 1):
+		for dx in range(-reach, reach + 1):
+			var cell := center + Vector2i(dx, dy)
+			if Vector2(dx, dy).length() > BLAST_RADIUS or not _inside(cell):
+				continue
+			var block := get_block(cell)
+			if block == Textures.TNT:
+				_light(cell, CHAIN_FUSE_SECONDS)
+			elif block != Textures.AIR and block != Textures.BEDROCK:
+				_crumble(cell, block, 3)
+				set_block(cell, Textures.AIR)
+				stats["broken"] += 1
+	var cell_px := cell_size()
+	_blasts.append({"center": _origin() + (Vector2(center) + Vector2(0.5, 0.5)) * cell_px,
+		"life": 0.35})
+	_shake = 0.3
 	counts_changed.emit()
 
 
@@ -158,6 +198,21 @@ func _process(delta: float) -> void:
 			stats["broken"] += 1
 			counts_changed.emit()
 			_breaking = Vector2i(-1, -1)
+		queue_redraw()
+	if not _fuses.is_empty():
+		for cell in _fuses.keys():
+			_fuses[cell] -= delta
+			if get_block(cell) != Textures.TNT:
+				_fuses.erase(cell)
+			elif _fuses[cell] <= 0:
+				_fuses.erase(cell)
+				_explode(cell)
+		queue_redraw()
+	if _shake > 0 or not _blasts.is_empty():
+		_shake = maxf(_shake - delta, 0)
+		for blast in _blasts:
+			blast["life"] -= delta
+		_blasts = _blasts.filter(func(blast: Dictionary) -> bool: return blast["life"] > 0)
 		queue_redraw()
 	_fall_timer += delta
 	if _fall_timer >= FALL_SECONDS:
@@ -182,10 +237,10 @@ func _fall_sand() -> void:
 				set_block(cell, Textures.AIR)
 
 
-func _crumble(cell: Vector2i, block: int) -> void:
+func _crumble(cell: Vector2i, block: int, amount := 8) -> void:
 	var cell_px := cell_size()
 	var center := _origin() + (Vector2(cell) + Vector2(0.5, 0.5)) * cell_px
-	for index in 8:
+	for index in amount:
 		_crumbs.append({
 			"position": center + Vector2(randf_range(-0.3, 0.3), randf_range(-0.3, 0.3)) * cell_px,
 			"velocity": Vector2(randf_range(-90, 90), randf_range(-220, -60)),
@@ -197,6 +252,9 @@ func _crumble(cell: Vector2i, block: int) -> void:
 #region DESENHO
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), _sky_color())
+	if _shake > 0:
+		var strength := _shake * 20
+		draw_set_transform(Vector2(randf_range(-strength, strength), randf_range(-strength, strength)))
 	_draw_sun()
 	var cell := cell_size()
 	var origin := _origin()
@@ -215,8 +273,20 @@ func _draw() -> void:
 		var stage := clampi(int(_break_progress * 4), 0, 3)
 		draw_texture_rect(textures.cracks[stage], rect, false)
 		draw_rect(rect, Color(1, 1, 1, 0.5), false, 1.0)
+	# TNT acesa pisca branco, cada vez mais rápido
+	for lit in _fuses:
+		var rect := Rect2(origin + Vector2(lit) * cell, Vector2(cell, cell))
+		var blink := sin(Time.get_ticks_msec() / 1000.0 * (10.0 + 20.0 / maxf(_fuses[lit], 0.1)))
+		if blink > 0:
+			draw_rect(rect, Color(1, 1, 1, 0.65))
 	for crumb in _crumbs:
 		draw_rect(Rect2(crumb["position"] - Vector2(2, 2), Vector2(4, 4)), crumb["color"])
+	for blast in _blasts:
+		var grow: float = 1.0 - blast["life"] / 0.35
+		var radius := cell * BLAST_RADIUS * (0.6 + grow * 0.7)
+		draw_circle(blast["center"], radius, Color(1.0, 0.75, 0.3, 0.7 * (1.0 - grow)))
+		draw_circle(blast["center"], radius * 0.55, Color(1.0, 1.0, 0.85, 0.8 * (1.0 - grow)))
+	draw_set_transform(Vector2.ZERO)
 
 
 ## Hora do jogo: manhã clara, meio-dia azul, fim de tarde laranja e, depois do expediente, noite

@@ -1,17 +1,18 @@
 extends RefCounted
 ## Texturas dos blocos, desenhadas pixel a pixel por código (16x16), e o ícone do app
 
-enum { AIR, GRASS, DIRT, STONE, LOG, PLANKS, LEAVES, SAND, GLASS, BRICK, BEDROCK, GRASS_TOP }
+enum { AIR, GRASS, DIRT, STONE, LOG, PLANKS, LEAVES, SAND, GLASS, BRICK, BEDROCK, GRASS_TOP, TNT }
 
 const SIZE := 16
 const NAMES := {
 	GRASS: "Grama", DIRT: "Terra", STONE: "Pedra", LOG: "Tronco", PLANKS: "Tábuas",
 	LEAVES: "Folhas", SAND: "Areia", GLASS: "Vidro", BRICK: "Tijolo", BEDROCK: "Rocha-mãe",
+	TNT: "TNT",
 }
 ## Segundos segurando o dedo para quebrar; rocha-mãe não quebra
 const HARDNESS := {
 	GRASS: 0.35, DIRT: 0.3, STONE: 0.9, LOG: 0.6, PLANKS: 0.5, LEAVES: 0.12, SAND: 0.25,
-	GLASS: 0.15, BRICK: 1.0, BEDROCK: INF,
+	GLASS: 0.15, BRICK: 1.0, BEDROCK: INF, TNT: 0.2,
 }
 
 var textures: Dictionary = {}
@@ -21,7 +22,7 @@ var cracks: Array[ImageTexture] = []
 
 
 func _init() -> void:
-	for block in [GRASS, DIRT, STONE, LOG, PLANKS, LEAVES, SAND, GLASS, BRICK, BEDROCK, GRASS_TOP]:
+	for block in [GRASS, DIRT, STONE, LOG, PLANKS, LEAVES, SAND, GLASS, BRICK, BEDROCK, GRASS_TOP, TNT]:
 		var image := _paint(block)
 		textures[block] = ImageTexture.create_from_image(image)
 		colors[block] = _average(image)
@@ -81,7 +82,24 @@ func _pixel(block: int, x: int, y: int, rng: RandomNumberGenerator) -> Color:
 			return _shade(Color(0.66, 0.26, 0.2), noise * 0.08)
 		BEDROCK:
 			return _shade(Color(0.25, 0.25, 0.27), noise * 0.25)
+		TNT:
+			# Faixa branca com "TNT" escrito no meio do vermelho
+			if y >= 5 and y <= 10:
+				return Color(0.1, 0.1, 0.1) if _tnt_letter(x - 2, y - 6) else Color(0.93, 0.92, 0.88)
+			var stripe := -0.18 if x % 4 == 0 else 0.0
+			var top := -0.25 if y <= 1 else 0.0
+			return _shade(Color(0.82, 0.18, 0.13), stripe + top + noise * 0.05)
 	return Color.TRANSPARENT
+
+
+## As letras T, N, T em 3x4 pixels, com um pixel entre elas
+func _tnt_letter(x: int, y: int) -> bool:
+	if y < 0 or y > 3 or x < 0 or x > 10 or x % 4 == 3:
+		return false
+	var column := x % 4
+	if x / 4 == 1:
+		return column != 1 or y == 1 or y == 2
+	return y == 0 or column == 1
 
 
 func _shade(color: Color, amount: float) -> Color:
