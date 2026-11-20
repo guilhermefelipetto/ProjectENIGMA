@@ -1,0 +1,13 @@
+{
+	"id": "felipetto.banco_premium",
+	"name": "Banco Premium™ (com anúncios)",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"main_script": "main.gd",
+	"description": "O app do Banco vira gratuito com anúncios: banner da CapivaraCoin (\"INVISTA EM CRIPTOMOEDA DE CAPIVARA\"), Passe Bancário com 100 níveis e passe premium, e um botão de \"Remover anúncios por R$ 99,99\" que cobra e adiciona mais anúncios. De vez em quando aparece um popup (\"13 mil pessoas querem te encontrar\") com um X minúsculo e um CANCELAR que leva a outro popup. Textos em anuncios.json.",
+	"config": {
+		"popup_every_minutes": 40
+	}
+}

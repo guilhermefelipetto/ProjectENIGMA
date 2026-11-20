@@ -1,0 +1,84 @@
+{
+	"ads": [
+		{
+			"title": "CAPIVARACOIN",
+			"text": "INVISTA EM CRIPTOMOEDA DE CAPIVARA. Rende 4.700% ao ano.* (*não rende)",
+			"action": "Investir já",
+			"result": "Você investiu R$ 0,00 e agora tem 0 capivaras. Volte sempre!"
+		},
+		{
+			"title": "EMPRÉSTIMO NA HORA",
+			"text": "Juros de só 47% ao mês. Aprovado até pra quem já foi negado. Principalmente pra quem já foi negado.",
+			"action": "Pegar R$ 500",
+			"result": "Empréstimo negado. Mas ficamos com seus dados, obrigado."
+		},
+		{
+			"title": "CURSO: FIQUE RICO",
+			"text": "Aprenda a ficar rico vendendo cursos de como ficar rico.",
+			"action": "Comprar curso",
+			"result": "Curso esgotado. Compre o curso de como comprar cursos."
+		},
+		{
+			"title": "SEGURO DE CELULAR",
+			"text": "Protege contra quedas, roubos e anúncios. Exceto anúncios.",
+			"action": "Contratar",
+			"result": "Seguro contratado! Cobre tudo, menos o que acontecer."
+		}
+	],
+	"pass_rewards": [
+		"Taxa Dourada",
+		"Figurinha exclusiva de boleto",
+		"Tema Bege Escuro",
+		"Gerente que responde em 3 dias úteis",
+		"Senha com 5 dígitos (em vez de 4)",
+		"Fila preferencial no app",
+		"Extrato em fonte Comic Sans",
+		"Capivara de estimação (virtual)",
+		"Cashback de 0,001%",
+		"Título: Pagador Lendário"
+	],
+	"popups": [
+		{
+			"title": "13 mil pessoas querem te encontrar!",
+			"text": "Elas estão a menos de 2 km de você. E sabem onde você trabalha.",
+			"yes": "VER QUEM É"
+		},
+		{
+			"title": "Parabéns!",
+			"text": "Você é o visitante 1.000.000! Toque para receber seu iPhone 47.",
+			"yes": "RECEBER"
+		},
+		{
+			"title": "ALERTA: 47 vírus encontrados",
+			"text": "Seu celular está infectado. Toque abaixo para limpar (por favor não toque).",
+			"yes": "LIMPAR AGORA"
+		},
+		{
+			"title": "Herança disponível",
+			"text": "Uma tia rica que você não conhece deixou US$ 4,7 milhões para você. Só falta pagar a taxa.",
+			"yes": "PAGAR TAXA"
+		},
+		{
+			"title": "Seu CPF foi sorteado",
+			"text": "Ganhe um carro 0 km por apenas R$ 1,00. Sério. Confia.",
+			"yes": "QUERO O CARRO"
+		}
+	],
+	"cancel_chain": [
+		{
+			"title": "Tem certeza?",
+			"text": "Você vai perder essa oferta única que aparece toda hora.",
+			"yes": "QUERO A OFERTA"
+		},
+		{
+			"title": "Cancelamento cancelado",
+			"text": "Detectamos que você cancelou sem querer. Deseja continuar com a oferta?",
+			"yes": "CONTINUAR"
+		},
+		{
+			"title": "Última chance",
+			"text": "Essa é a última chance. Até a próxima.",
+			"yes": "OK"
+		}
+	]
+}
