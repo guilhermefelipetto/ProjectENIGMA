@@ -1,0 +1,14 @@
+{
+	"id": "felipetto.kwanzas",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Kwanzas Sem Avisar",
+	"description": "A partir do dia 3, as lojas passam a cobrar em kwanzas angolanos, só que continuam escrevendo R$. Um martelo de R$ 59,90 vira R$ 9.480,37. O seu dinheiro continua em reais, e o Banco cobra o número que aparece. Dia e cotação ajustáveis em \"config\".",
+	"config": {
+		"from_day": 3,
+		"rate": 158.27
+	},
+	"main_script": "main.gd"
+}
