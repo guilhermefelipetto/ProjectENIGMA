@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.historico_mentiroso",
+	"name": "Histórico Mentiroso",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "O histórico de Mensagens começa a mentir: nas conversas dos dias passados, as suas respostas viram coisas que você nunca disse (\"pode deixar que eu pago do meu bolso\"), e algumas falas dos contatos também mudam. Só a tela mente: o que foi salvo continua igual. Mentiras em mentiras.json.",
+	"main_script": "main.gd"
+}
