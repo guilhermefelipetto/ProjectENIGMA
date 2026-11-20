@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.atualizacao_surpresa",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Atualização Surpresa",
+	"description": "No meio do pagamento, o Banco decide se atualizar. A atualização cancela a transação e, quando termina, toda a interface mudou de lugar. A segunda tentativa com o mesmo código passa. As novidades da versão ficam em novidades.json.",
+	"main_script": "main.gd"
+}
