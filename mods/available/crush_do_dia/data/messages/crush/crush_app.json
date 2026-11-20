@@ -1,0 +1,24 @@
+{
+	"conversation_id": "crush_app",
+	"contact_name": "Crush",
+	"account": "@crushapp",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_boas_vindas",
+			"relative_due_time": 20
+		}
+	],
+	"branches": {
+		"d2_boas_vindas": [
+			{
+				"id": "crush_app_d2_0",
+				"text": "Bem-vindo(a) ao Crush! Você tem 4 novos matches esta semana."
+			},
+			{
+				"id": "crush_app_d2_1",
+				"text": "Dica de segurança do Crush: ninguém que te ama de verdade pede Pix, código ou senha. Na dúvida, chamada de vídeo."
+			}
+		]
+	}
+}

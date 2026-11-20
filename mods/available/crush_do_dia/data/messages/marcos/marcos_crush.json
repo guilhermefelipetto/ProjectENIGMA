@@ -1,0 +1,74 @@
+{
+	"conversation_id": "marcos_crush",
+	"contact_name": "Marcos, 31",
+	"account": "@marcos.normal",
+	"entry_points": [
+		{
+			"day": 6,
+			"branch": "d6_oi",
+			"relative_due_time": 65
+		}
+	],
+	"branches": {
+		"d6_oi": [
+			{
+				"id": "marcos_d6_0",
+				"text": "oi! deu match"
+			},
+			{
+				"id": "marcos_d6_1",
+				"text": "sou só um cara normal. trabalho com contabilidade"
+			},
+			{
+				"id": "marcos_d6_2",
+				"text": "não quero seu pix. não tenho primo. não sou modelo. minha câmera funciona."
+			},
+			{
+				"id": "marcos_d6_3",
+				"text": "se quiser, a gente pode tomar um café no fim de semana"
+			},
+			{
+				"id": "marcos_d6_4",
+				"text": "pode me ligar por vídeo antes, se preferir. eu sei que tá difícil confiar nos outros"
+			},
+			{
+				"id": "marcos_d6_5",
+				"text": "ok, vou voltar pra minha planilha",
+				"choices": [
+					{
+						"id": "marcos_d6_5a_0",
+						"player_text": "Um perfil verdadeiro?! Que medo",
+						"npc_reply": {
+							"goto_branch": "d6_medo",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "marcos_d6_5a_1",
+						"player_text": "Café no sábado, fechado",
+						"npc_reply": {
+							"goto_branch": "d6_cafe",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d6_medo": [
+			{
+				"id": "marcos_medo_0",
+				"text": "entendo totalmente"
+			},
+			{
+				"id": "marcos_medo_1",
+				"text": "pode checar meu perfil, eu espero 🙂"
+			}
+		],
+		"d6_cafe": [
+			{
+				"id": "marcos_cafe_0",
+				"text": "combinado! eu levo o café, você leva o antivírus atualizado 😄"
+			}
+		]
+	}
+}

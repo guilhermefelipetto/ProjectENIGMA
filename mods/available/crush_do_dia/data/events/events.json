@@ -1,0 +1,83 @@
+{
+	"crush_golpe_amor": {
+		"type": "scam",
+		"description": "Golpe do amor: Pix para o \"remédio do filho\"",
+		"requires": [
+			{
+				"flag": "payment",
+				"payment_id": "AM0R1"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "codigo_pix",
+				"rule": "pix_code_format",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "AM0R1",
+						"section": "pix_code"
+					},
+					{
+						"source": "messages",
+						"conversation": "kelly_crush",
+						"section": "message",
+						"contains": "AM0R1"
+					}
+				]
+			},
+			{
+				"id": "motivo",
+				"rule": "valid_reason",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "AM0R1",
+						"section": "reason"
+					},
+					{
+						"source": "messages",
+						"conversation": "kelly_crush",
+						"section": "message",
+						"contains": "remédio do Enzo"
+					}
+				]
+			},
+			{
+				"id": "destinatario",
+				"rule": "pix_recipient",
+				"found_at": [
+					{
+						"source": "bank",
+						"payment_code": "AM0R1",
+						"section": "recipient"
+					}
+				]
+			}
+		]
+	},
+	"crush_catfish": {
+		"type": "scam",
+		"description": "Perfil falso pedindo código de verificação",
+		"requires": [
+			{
+				"flag": "option",
+				"choice": "Passar o código"
+			}
+		],
+		"discrepancies": [
+			{
+				"id": "pede_codigo",
+				"rule": "secret_data",
+				"found_at": [
+					{
+						"source": "messages",
+						"conversation": "ana_crush",
+						"section": "message",
+						"contains": "código"
+					}
+				]
+			}
+		]
+	}
+}

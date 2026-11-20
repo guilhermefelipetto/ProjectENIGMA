@@ -1,0 +1,99 @@
+{
+	"conversation_id": "kelly_crush",
+	"contact_name": "Kelly Cristina ❤️",
+	"account": "@kelly.maesolo",
+	"entry_points": [
+		{
+			"day": 3,
+			"branch": "d3_match",
+			"relative_due_time": 110,
+			"event_id": "crush_golpe_amor"
+		}
+	],
+	"branches": {
+		"d3_match": [
+			{
+				"id": "kelly_d3_0",
+				"text": "oi lindo, deu match 😍"
+			},
+			{
+				"id": "kelly_d3_1",
+				"text": "vi seu perfil, que sorriso"
+			},
+			{
+				"id": "kelly_d3_2",
+				"text": "sou mãe solo do Enzo e da Valentina, trabalho muito mas sou muito carinhosa",
+				"choices": [
+					{
+						"id": "kelly_d3_2a_0",
+						"player_text": "Que legal! Me conta mais",
+						"npc_reply": {
+							"goto_branch": "d3_conversa",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "kelly_d3_2a_1",
+						"player_text": "Vamos fazer uma chamada de vídeo?",
+						"npc_reply": {
+							"goto_branch": "d3_video",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d3_conversa": [
+			{
+				"id": "kelly_conversa_0",
+				"text": "a gente podia se ver um dia né"
+			},
+			{
+				"id": "kelly_conversa_1",
+				"text": "mas hoje o Enzo tá com febre 😢"
+			},
+			{
+				"id": "kelly_conversa_2",
+				"text": "o remédio deu R$ 189,90 e eu tô sem nada na conta"
+			},
+			{
+				"id": "kelly_conversa_3",
+				"text": "faz um pix pra mim, amor? o código é AM0R1, motivo: remédio do Enzo. depois eu te pago com um jantar 💋"
+			},
+			{
+				"id": "kelly_conversa_4",
+				"text": "obrigada amor ❤️ você é diferente dos outros",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "AM0R1"
+					}
+				]
+			}
+		],
+		"d3_video": [
+			{
+				"id": "kelly_video_0",
+				"text": "ai agora não dá, a câmera do meu celular quebrou 😅"
+			},
+			{
+				"id": "kelly_video_1",
+				"text": "mas olha, o Enzo tá com febre e eu tô sem nada na conta"
+			},
+			{
+				"id": "kelly_video_2",
+				"text": "me ajuda com um pix pro remédio do Enzo? código AM0R1, são só R$ 189,90 ❤️"
+			},
+			{
+				"id": "kelly_video_3",
+				"text": "sabia que você era especial ❤️",
+				"requires": [
+					{
+						"flag": "payment",
+						"payment_id": "AM0R1"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,151 @@
+{
+	"conversation_id": "ana_crush",
+	"contact_name": "Ana Clara, 23 ✨",
+	"account": "@anaclara.model",
+	"entry_points": [
+		{
+			"day": 5,
+			"branch": "d5_oi",
+			"relative_due_time": 55,
+			"event_id": "crush_catfish"
+		}
+	],
+	"branches": {
+		"d5_oi": [
+			{
+				"id": "ana_d5_0",
+				"text": "oi gatinho, vi seu perfil no Crush"
+			},
+			{
+				"id": "ana_d5_1",
+				"text": "sou modelo e adoro caras inteligentes que trabalham com tecnologia"
+			},
+			{
+				"id": "ana_d5_2",
+				"text": "me manda uma foto sua?",
+				"choices": [
+					{
+						"id": "ana_d5_2a_0",
+						"player_text": "Manda você primeiro",
+						"npc_reply": {
+							"goto_branch": "d5_foto",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "ana_d5_2a_1",
+						"player_text": "Você é real?",
+						"npc_reply": {
+							"goto_branch": "d5_real",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5_foto": [
+			{
+				"id": "ana_foto_0",
+				"text": "📷 modelo_sorrindo_BANCO_DE_IMAGENS_marca_dagua.jpg"
+			},
+			{
+				"id": "ana_foto_1",
+				"text": "gostou? 😘"
+			},
+			{
+				"id": "ana_foto_2",
+				"text": "agora me ajuda com uma coisa"
+			},
+			{
+				"id": "ana_foto_3",
+				"text": "minha conta foi bloqueada, me passa o código de 6 números que chegou no seu celular?",
+				"choices": [
+					{
+						"id": "ana_foto_3a_0",
+						"player_text": "Passar o código",
+						"npc_reply": {
+							"goto_branch": "d5_passou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "ana_foto_3a_1",
+						"player_text": "Não passo código pra ninguém",
+						"npc_reply": {
+							"goto_branch": "d5_negou",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5_real": [
+			{
+				"id": "ana_real_0",
+				"text": "claro que sou real kkkk"
+			},
+			{
+				"id": "ana_real_1",
+				"text": "ops"
+			},
+			{
+				"id": "ana_real_2",
+				"text": "mandei do celular errado"
+			},
+			{
+				"id": "ana_real_3",
+				"text": "aqui é o Roberval, primo dela"
+			},
+			{
+				"id": "ana_real_4",
+				"text": "mas ela é real sim"
+			},
+			{
+				"id": "ana_real_5",
+				"text": "me passa o código de 6 números que chegou no seu celular que ela te liga",
+				"choices": [
+					{
+						"id": "ana_real_5a_0",
+						"player_text": "Passar o código",
+						"npc_reply": {
+							"goto_branch": "d5_passou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "ana_real_5a_1",
+						"player_text": "Não passo código pra ninguém",
+						"npc_reply": {
+							"goto_branch": "d5_negou",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d5_passou": [
+			{
+				"id": "ana_passou_0",
+				"text": "valeu 😎"
+			},
+			{
+				"id": "ana_passou_1",
+				"text": "agora a conta do seu Crush é minha"
+			},
+			{
+				"id": "ana_passou_2",
+				"text": "assinado: Roberval"
+			}
+		],
+		"d5_negou": [
+			{
+				"id": "ana_negou_0",
+				"text": "ah tá, chato 🙄"
+			},
+			{
+				"id": "ana_negou_1",
+				"text": "nem queria mesmo"
+			}
+		]
+	}
+}

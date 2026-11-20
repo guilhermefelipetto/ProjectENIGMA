@@ -47,6 +47,7 @@ Mods que vêm com o jogo ficam em `res://mods/available/`. Mods instalados por v
 | Celular em Grego | Todo texto da tela em letras gregas | script |
 | Bateria (que apaga o save) | Bateria que acaba; se zerar, o jogo salvo é apagado | script |
 | Tocafunk | Rádio de funk-forró sintetizado que não desliga | script + `synth.gd` |
+| Crush do Dia | App de namoro: esposa do chefe, golpe do amor, perfil falso e um match honesto | dados |
 
 ## Criando um mod
 

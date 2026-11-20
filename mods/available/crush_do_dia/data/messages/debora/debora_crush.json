@@ -1,0 +1,159 @@
+{
+	"conversation_id": "debora_crush",
+	"contact_name": "Débora",
+	"account": "@debora.fitness",
+	"entry_points": [
+		{
+			"day": 2,
+			"branch": "d2_numero_errado",
+			"relative_due_time": 75
+		},
+		{
+			"day": 4,
+			"branch": "d4_sobre_aquele_dia",
+			"relative_due_time": 95
+		}
+	],
+	"branches": {
+		"d2_numero_errado": [
+			{
+				"id": "debora_d2_0",
+				"text": "oiii, é o Rodrigo da academia?"
+			},
+			{
+				"id": "debora_d2_1",
+				"text": "vi seu perfil no Crush e achei que era vc kkk",
+				"choices": [
+					{
+						"id": "debora_d2_1a_0",
+						"player_text": "Errou o número, aqui é o estagiário da Enigma",
+						"npc_reply": {
+							"goto_branch": "d2_errou",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "debora_d2_1a_1",
+						"player_text": "Sou eu sim, o Rodrigo",
+						"npc_reply": {
+							"goto_branch": "d2_rodrigo",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d2_errou": [
+			{
+				"id": "debora_errou_0",
+				"text": "da ENIGMA??"
+			},
+			{
+				"id": "debora_errou_1",
+				"text": "a empresa do meu marido?"
+			},
+			{
+				"id": "debora_errou_2",
+				"text": "o Chefinho (sim, ele pede pra chamarem assim até em casa)"
+			},
+			{
+				"id": "debora_errou_3",
+				"text": "por favor não conta pra ele que eu te mandei mensagem"
+			},
+			{
+				"id": "debora_errou_4",
+				"text": "e apaga essa conversa 🙈"
+			}
+		],
+		"d2_rodrigo": [
+			{
+				"id": "debora_rodrigo_0",
+				"text": "rodrigo vc sumiu da academia!!"
+			},
+			{
+				"id": "debora_rodrigo_1",
+				"text": "meu marido tá desconfiado de vc"
+			},
+			{
+				"id": "debora_rodrigo_2",
+				"text": "ele é chefe numa empresa aí, a Enigma"
+			},
+			{
+				"id": "debora_rodrigo_3",
+				"text": "..."
+			},
+			{
+				"id": "debora_rodrigo_4",
+				"text": "pq vc tá digitando tão certinho"
+			},
+			{
+				"id": "debora_rodrigo_5",
+				"text": "VOCÊ NÃO É O RODRIGO"
+			},
+			{
+				"id": "debora_rodrigo_6",
+				"text": "esquece que eu existo"
+			}
+		],
+		"d4_sobre_aquele_dia": [
+			{
+				"id": "debora_d4_0",
+				"text": "oi, sobre aquele dia..."
+			},
+			{
+				"id": "debora_d4_1",
+				"text": "meu marido perguntou se eu conheço algum estagiário. vc não falou nada né?",
+				"choices": [
+					{
+						"id": "debora_d4_1a_0",
+						"player_text": "Não falei nada",
+						"npc_reply": {
+							"goto_branch": "d4_ufa",
+							"delay_ticks": 3
+						}
+					},
+					{
+						"id": "debora_d4_1a_1",
+						"player_text": "Falei tudo",
+						"npc_reply": {
+							"goto_branch": "d4_falou",
+							"delay_ticks": 3
+						}
+					}
+				]
+			}
+		],
+		"d4_ufa": [
+			{
+				"id": "debora_ufa_0",
+				"text": "ufa"
+			},
+			{
+				"id": "debora_ufa_1",
+				"text": "te devo uma"
+			},
+			{
+				"id": "debora_ufa_2",
+				"text": "se ele te der muita tarefa me avisa que eu resolvo 😌"
+			}
+		],
+		"d4_falou": [
+			{
+				"id": "debora_falou_0",
+				"text": "VOCÊ O QUÊ"
+			},
+			{
+				"id": "debora_falou_1",
+				"text": "brincadeira né?"
+			},
+			{
+				"id": "debora_falou_2",
+				"text": "NÉ????"
+			},
+			{
+				"id": "debora_falou_3",
+				"text": "vou fingir que não li isso"
+			}
+		]
+	}
+}

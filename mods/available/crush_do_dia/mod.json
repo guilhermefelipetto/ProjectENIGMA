@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.crush_do_dia",
+	"name": "Crush do Dia",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "O estagiário entra no app de namoro Crush e as histórias correm em paralelo com o trabalho: a esposa do Chefinho que mandou mensagem pro número errado (dias 2 e 4), a Kelly, mãe solo, que precisa de um Pix pro remédio do filho (dia 3, golpe do amor, denunciável), a Ana Clara, modelo de 23 anos que na verdade é o Roberval (dia 5, perfil falso, denunciável) e o Marcos, um cara normal que não quer nada de você (dia 6). Ninguém que te ama pede Pix.",
+	"priority": 30
+}
