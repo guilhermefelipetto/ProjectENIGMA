@@ -189,7 +189,7 @@ func _build_requirements() -> void:
 ## What a new password needs today: the minimum length and how many characters of each class, as
 ## the "password_policy" of the day in data/notes/board.json says (later days reuse the last one)
 func _get_requirements() -> Dictionary:
-	var board = JSON.parse_string(FileAccess.get_file_as_string(BOARD_PATH))
+	var board = ModLoader.read_json(BOARD_PATH)
 	var days: Dictionary = board.get("days", {}) if board is Dictionary else {}
 	for day in range(GameData.current_day, -1, -1):
 		var policy: Dictionary = days.get(str(day), {}).get("password_policy", {})

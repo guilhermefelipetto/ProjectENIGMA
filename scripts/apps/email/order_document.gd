@@ -92,12 +92,7 @@ func _add_target(
 
 ## Reads every order document, forged ones included
 func _load_documents() -> Dictionary:
-	var file := FileAccess.open(DOCUMENTS_PATH, FileAccess.READ)
-	if file == null:
-		push_error("Could not open documents file: %s" % DOCUMENTS_PATH)
-		return {}
-
-	var documents = JSON.parse_string(file.get_as_text())
+	var documents = ModLoader.read_json(DOCUMENTS_PATH)
 	if not documents is Dictionary:
 		push_error("Documents file is not a JSON object: %s" % DOCUMENTS_PATH)
 		return {}

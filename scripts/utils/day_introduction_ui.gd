@@ -800,7 +800,7 @@ func _play_message_sound() -> void:
 func _load_json(path: String) -> Variant:
 	if not FileAccess.file_exists(path):
 		return null
-	return JSON.parse_string(FileAccess.get_file_as_string(path))
+	return ModLoader.read_json(path)
 
 
 ## Tapping while a page is still animating shows it all at once

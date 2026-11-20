@@ -320,12 +320,7 @@ func _add_label(parent: Container, text: String, font: Font, size: int, color: C
 
 
 func _load_json(path: String) -> Dictionary:
-	var file := FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		push_error("Could not open file: %s" % path)
-		return {}
-
-	var data = JSON.parse_string(file.get_as_text())
+	var data = ModLoader.read_json(path)
 	if not data is Dictionary:
 		push_error("File is not a JSON object: %s" % path)
 		return {}

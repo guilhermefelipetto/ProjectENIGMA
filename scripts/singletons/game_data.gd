@@ -523,18 +523,14 @@ func month_name(date_dict: Dictionary) -> String:
 
 ## Reads the whole rulebook, every day included
 func load_rules() -> Array:
-	var file := FileAccess.open(RULES_PATH, FileAccess.READ)
-	if file == null:
-		push_error("Could not open rules file: %s" % RULES_PATH)
-		return []
-
-	var rules = JSON.parse_string(file.get_as_text())
+	var rules = ModLoader.read_json(RULES_PATH)
 	if not rules is Array:
 		push_error("Rules file is not a JSON array: %s" % RULES_PATH)
 		return []
 	return rules
 
 func format_brl(value: float) -> String:
+	var signed_value := value
 	var result = "-" if sign(value) == -1 else ""
 	value = abs(value)
 
@@ -557,7 +553,8 @@ func format_brl(value: float) -> String:
 
 	result += "R$ %s,%s" % [formatted_int, decimal_part]
 
-	return result
+	# Mods may write the amount another way, see mods/README.md
+	return ModLoader.apply_filter("money_text", result, [signed_value])
 
 func hours_minutes_as_string(relative_time: int) -> String:
 	var current_day_minutes:float = relative_time + starting_hours_minutes

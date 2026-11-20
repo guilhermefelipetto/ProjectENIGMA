@@ -185,6 +185,7 @@ func reload_and_setup_today() -> void:
 
 	#Update Browser News
 	_on_update_news()
+	ModLoader.emit_hook("day_started", [self])
 
 ## Tells the Notes who sends the random tasks of today: anyone else asking for something is a scam
 ##
@@ -415,6 +416,7 @@ func _enqueue_story_entry(channel_name: String, schedule_entry: Dictionary, lane
 ## progress the main lane goes first and the random lane after it, which gets its next random
 ## event right then, so they come one after another.
 func on_clock_tick(current_minutes: int) -> void:
+	ModLoader.emit_hook("clock_tick", [current_minutes, self])
 	events_director._on_clock_tick()
 	emails_director._on_clock_tick()
 	_publish_online_chats()
@@ -595,27 +597,10 @@ func _load_json_roots_from_all_directories(directory_path: String) -> Array:
 		roots.append_array(_load_json_roots_from_directory(subdirectory_path))
 	return roots
 
-## Lists all subdirectory paths in a given directory
+## Lists all subdirectory paths in a given directory, the ones the mods add included
 func _list_subdirectory_paths(directory_path: String) -> Array[String]:
-	var directory := DirAccess.open(directory_path)
-	var subdirectory_paths: Array[String] = []
-	if directory == null:
-		return subdirectory_paths
+	return ModLoader.list_subdirectories(directory_path)
 
-	directory.list_dir_begin()
-	while true:
-		var directory_name := directory.get_next()
-		if directory_name == "":
-			break
-		if not directory.current_is_dir():
-			continue
-		if directory_name.begins_with("."):
-			continue
-		subdirectory_paths.append(directory_path.path_join(directory_name))
-	directory.list_dir_end()
-
-	return subdirectory_paths
-	
 ## Loads all JSON roots from a given directory path
 func _load_json_roots_from_directory(directory_path: String) -> Array:
 	var file_paths := _list_json_file_paths(directory_path)
@@ -626,36 +611,15 @@ func _load_json_roots_from_directory(directory_path: String) -> Array:
 		roots.append(_read_json_root(file_path))
 	return roots
 
-## Lists all JSON file paths in a given directory
+## Lists all JSON file paths in a given directory, the ones the mods add included
 func _list_json_file_paths(directory_path: String) -> Array[String]:
-	var directory := DirAccess.open(directory_path)
-	var file_paths: Array[String] = []
-	if directory == null:
-		return file_paths
+	return ModLoader.list_json_files(directory_path)
 
-	directory.list_dir_begin()
-	while true:
-		var file_name := directory.get_next()
-		if file_name == "":
-			break
-		if directory.current_is_dir():
-			continue
-		if file_name.begins_with("."):
-			continue
-		if file_name.get_extension().to_lower() != "json":
-			continue
-		file_paths.append(directory_path.path_join(file_name))
-	directory.list_dir_end()
-
-	return file_paths
-
-## Reads and parses a JSON file, returning the root Variant
+## Reads and parses a JSON file as the active mods leave it, see ModLoader.read_json()
 func _read_json_root(file_path: String) -> Variant:
-	var file := FileAccess.open(file_path, FileAccess.READ)
-	var parser := JSON.new()
-	var result := parser.parse(file.get_as_text())
-	assert(result == OK)
-	return parser.data
+	var data: Variant = ModLoader.read_json(file_path)
+	assert(data != null, "JSON missing or invalid: %s" % file_path)
+	return data
 
 func _read_json_array(file_path: String) -> Array:
 	var json_data = _read_json_root(file_path)
@@ -732,11 +696,9 @@ func _on_browser_request_news() -> void:
 # get the news of the current day
 func _load_news_data() -> Dictionary:
 	var current_day = GameData.current_day
-	var file = FileAccess.open(news_dir_path, FileAccess.READ)
-	var json_text = file.get_as_text()
-	file.close()
-
-	var data = JSON.parse_string(json_text)
+	var data = ModLoader.read_json(news_dir_path)
+	if not data is Dictionary:
+		return {}
 	var day_key = "day_%d" % current_day
 	return data[day_key] if data.has(day_key) else {}
 

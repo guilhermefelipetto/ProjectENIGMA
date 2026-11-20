@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cxedermdt10gv" path="res://scenes/tools/music_player_v2.tscn" id="16_5pajh"]
 [ext_resource type="Shader" uid="uid://cvysxvx3xn10e" path="res://shaders/menu_button_text.gdshader" id="16_txtsh"]
 [ext_resource type="Script" uid="uid://do5w7m1qcltk4" path="res://scripts/main_menu/menu_button_label.gd" id="17_lbl"]
+[ext_resource type="Script" path="res://mods/loader/ui/mods_button.gd" id="18_mods"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnbtn"]
 
@@ -368,6 +369,22 @@ text = "CONFIGURAÇÕES"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("17_lbl")
+
+[node name="ModsButton" type="Button" parent="." unique_id=1847261953]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.5882353, 0.078431375, 0.21960784, 1)
+theme_override_fonts/font = ExtResource("10_5dd4i")
+theme_override_font_sizes/font_size = 14
+text = "MODS"
+script = ExtResource("18_mods")
 
 [node name="ConscentPanel" type="PanelContainer" parent="." unique_id=267683509 node_paths=PackedStringArray("conscent_button")]
 visible = false
