@@ -4,121 +4,121 @@
 			"id": 1101,
 			"name": "Casca de Banana Usada (Marca Premium)",
 			"price": 0.01,
-			"logo": "res://assets/icons/shops/products/emilia/brigadeiro_maracuja.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/casca_banana.png"
 		},
 		{
 			"id": 1102,
 			"name": "AK-47 da Promoção (Sem Procedência)",
 			"price": 49.9,
-			"logo": "res://assets/icons/shops/products/amazonia/aco.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/fuzil_promocao.png"
 		},
 		{
 			"id": 1103,
 			"name": "Granada com Pino Levemente Defeituoso",
 			"price": 12.9,
-			"logo": "res://assets/icons/shops/products/amazonia/furadeira.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/granada.png"
 		},
 		{
 			"id": 1104,
 			"name": "Ar Comprimido Engarrafado (Sabor Premium)",
 			"price": 89.0,
-			"logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/ar_engarrafado.png"
 		},
 		{
 			"id": 1105,
 			"name": "Rim Humano Pouco Usado (Aceita Troca por iPhone)",
 			"price": 2500.0,
-			"logo": "res://assets/icons/shops/products/emilia/bolo_morango.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/rim.png"
 		},
 		{
 			"id": 1106,
 			"name": "Pedra de Areia Selecionada à Mão",
 			"price": 199.9,
-			"logo": "res://assets/icons/shops/products/amazonia/aco.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/pedra_areia.png"
 		},
 		{
 			"id": 1107,
 			"name": "Capivara de Pelúcia 47 Metros (Tam. Família)",
 			"price": 0.01,
-			"logo": "res://assets/icons/shops/products/amazonia/frigobar.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/capivara.png"
 		},
 		{
 			"id": 1108,
 			"name": "Lança-Chamas Doméstico (Para Churrasco)",
 			"price": 1499.0,
-			"logo": "res://assets/icons/shops/products/amazonia/furadeira.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/lanca_chamas.png"
 		},
 		{
 			"id": 1109,
 			"name": "Sapato Esquerdo Avulso (Sem Par)",
 			"price": 39.9,
-			"logo": "res://assets/icons/shops/products/aec/polo_1.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/sapato_esquerdo.png"
 		},
 		{
 			"id": 1110,
 			"name": "Saco de Vento Importado da Mongólia",
 			"price": 24.99,
-			"logo": "res://assets/icons/shops/products/emilia/bolo_chocolate.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/saco_vento.png"
 		},
 		{
 			"id": 1111,
 			"name": "Dignidade (1 Unidade)",
 			"price": 1.0,
-			"logo": "res://assets/icons/shops/products/emilia/tiramisu.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/dignidade.png"
 		},
 		{
 			"id": 1112,
 			"name": "iPhone 47 Pro Max Plus Ultra Edition",
 			"price": 89999.0,
-			"logo": "res://assets/icons/shops/products/amazonia/monitor.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/iphone_47.png"
 		},
 		{
 			"id": 1113,
 			"name": "1kg de Plutônio Enriquecido (Frete Grátis)",
 			"price": 199.0,
-			"logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/plutonio.png"
 		},
 		{
 			"id": 1114,
 			"name": "Alma do Antagonista Principal",
 			"price": 6.66,
-			"logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/alma.png"
 		},
 		{
 			"id": 1115,
 			"name": "Conta de Luz Atrasada de um Estranho (Você Paga)",
 			"price": 847.5,
-			"logo": "res://assets/icons/shops/products/aec/camiseta_2.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/conta_luz.png"
 		},
 		{
 			"id": 1116,
 			"name": "Voto da Próxima Eleição (Levemente Usado)",
 			"price": 25.0,
-			"logo": "res://assets/icons/shops/products/aec/polo_2.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/voto.png"
 		},
 		{
 			"id": 1117,
 			"name": "Wi-Fi do Vizinho (Senha Inclusa)",
 			"price": 49.9,
-			"logo": "res://assets/icons/shops/products/amazonia/monitor.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/wifi_vizinho.png"
 		},
 		{
 			"id": 1118,
 			"name": "Senha do Chefe Anotada num Post-it",
 			"price": 3.5,
-			"logo": "res://assets/icons/shops/products/amazonia/monitor.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/senha_chefe.png"
 		},
 		{
 			"id": 1119,
 			"name": "Antivírus Baixado de Link no WhatsApp",
 			"price": 0.0,
-			"logo": "res://assets/icons/shops/products/amazonia/monitor.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/antivirus_zap.png"
 		},
 		{
 			"id": 1120,
 			"name": "Nitrogênio Líquido 1L (Já Evaporado)",
 			"price": 19.9,
-			"logo": "res://assets/icons/shops/products/amazonia/n2_liquido.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/nitrogenio_evaporado.png"
 		}
 	],
 	"libre_mercado": [
@@ -126,19 +126,19 @@
 			"id": 1201,
 			"name": "Martelo de Isopor (Não Martela)",
 			"price": 7.9,
-			"logo": "res://assets/icons/shops/products/amazonia/martelo.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/martelo_isopor.png"
 		},
 		{
 			"id": 1202,
 			"name": "Furadeira Sem Broca, Sem Motor e Sem Furadeira",
 			"price": 59.9,
-			"logo": "res://assets/icons/shops/products/amazonia/furadeira.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/furadeira_vazia.png"
 		},
 		{
 			"id": 1203,
 			"name": "Monitor 4K (Kilo de Papelão)",
 			"price": 199.9,
-			"logo": "res://assets/icons/shops/products/amazonia/monitor.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/monitor_papelao.png"
 		}
 	],
 	"emilia_bolos": [
@@ -146,19 +146,19 @@
 			"id": 1301,
 			"name": "Bolo de Pote Vazio (Só o Pote)",
 			"price": 12.0,
-			"logo": "res://assets/icons/shops/products/emilia/bolo_decorado.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/bolo_pote_vazio.png"
 		},
 		{
 			"id": 1302,
 			"name": "Brigadeiro Diet de Brócolis",
 			"price": 4.5,
-			"logo": "res://assets/icons/shops/products/emilia/brigadeiro.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/brigadeiro_brocolis.png"
 		},
 		{
 			"id": 1303,
 			"name": "Tiramisu Sem Café, Sem Queijo, Sem Tira e Sem Misu",
 			"price": 49.9,
-			"logo": "res://assets/icons/shops/products/emilia/tiramisu.png"
+			"logo": "res://mods/available/produtos_absurdos_amazonia/assets/products/tiramisu_vazio.png"
 		}
 	]
 }

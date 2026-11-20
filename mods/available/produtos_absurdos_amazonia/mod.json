@@ -1,9 +1,9 @@
 {
 	"id": "felipetto.produtos_absurdos_amazonia",
 	"name": "Amazônia: Catálogo Estendido™",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"authors": [
 		"Guilherme Felipetto"
 	],
-	"description": "Mais de 25 produtos absurdamente questionáveis na Amazônia, no Libre Mercado e na Emília Bolos: AK-47 da promoção, rim humano (aceita troca), capivara de pelúcia de 47 metros, dignidade (1 unidade), senha do chefe num post-it... Os ícones reaproveitam imagens do jogo, não espere coerência visual. Os produtos do jogo continuam lá: as tarefas de compra funcionam normalmente."
+	"description": "Mais de 25 produtos absurdamente questionáveis na Amazônia, no Libre Mercado e na Emília Bolos: AK-47 da promoção, rim humano (aceita troca), capivara de pelúcia de 47 metros, dignidade (1 unidade), senha do chefe num post-it... Cada produto tem seu próprio desenho, no estilo dos ícones do jogo (gerados por tools/gerar_icones.py). Os produtos do jogo continuam lá: as tarefas de compra funcionam normalmente."
 }
