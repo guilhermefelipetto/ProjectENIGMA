@@ -1,0 +1,49 @@
+[
+	{
+		"conversation_id": "mae_aflita",
+		"messages": [
+			"FILHO",
+			"ME LIGA",
+			"🎤 Áudio (2:34)",
+			"🎤 Áudio (4:12)",
+			"🎤 Áudio (0:03)",
+			"POR QUE VC NAO RESPONDE",
+			"AHHHH NAO É NADA. esquece",
+			"🎤 Áudio (11:23)"
+		]
+	},
+	{
+		"conversation_id": "agiota_sereno",
+		"messages": [
+			"e aí",
+			"beleza",
+			"se lembra de mim",
+			"beleza",
+			"então",
+			"beleza",
+			"você tem 47 minutos",
+			"beleza"
+		]
+	},
+	{
+		"conversation_id": "banco_seguranca",
+		"messages": [
+			"Prezado(a) Cliente, identificamos atividade SUSPEITA em sua conta.",
+			"Para sua segurança, envie uma SELFIE segurando seu RG.",
+			"E uma selfie segurando seu CARTÃO (frente e verso, com o CVV visível).",
+			"E sua senha do banco escrita num papel, também na selfie.",
+			"Isso É um procedimento padrão e definitivamente NÃO É um golpe. 🏦"
+		]
+	},
+	{
+		"conversation_id": "tutorial_sarcastico",
+		"messages": [
+			"Olá! Eu sou o Tutorial™.",
+			"Notei que você está recebendo várias mensagens ao mesmo tempo.",
+			"Dica nível 1: quando 4 pessoas te escrevem ao mesmo tempo, provavelmente 3 são golpe.",
+			"Dica nível 2: a quarta também.",
+			"Aliás, atualize o Tutorial™ por este link: bit.ly/tutorial-real-juro",
+			"(é golpe)"
+		]
+	}
+]
