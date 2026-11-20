@@ -1,0 +1,28 @@
+{
+	"conversation_id": "modsbot_1",
+	"contact_name": "ModsBot",
+	"account": "@modsbot",
+	"entry_points": [
+		{
+			"day": 1,
+			"branch": "d1_ola",
+			"relative_due_time": 5
+		}
+	],
+	"branches": {
+		"d1_ola": [
+			{
+				"id": "modsbot_d1_0",
+				"text": "Olá! Eu sou o ModsBot, injetado pelo mod 'Exemplo Básico'."
+			},
+			{
+				"id": "modsbot_d1_1",
+				"text": "Se você está lendo isto, o sistema de mods está funcionando. ✓"
+			},
+			{
+				"id": "modsbot_d1_2",
+				"text": "Dá pra me desligar em Menu principal › MODS."
+			}
+		]
+	}
+}

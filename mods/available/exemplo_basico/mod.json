@@ -1,0 +1,10 @@
+{
+	"id": "exemplo.basico",
+	"name": "Exemplo Básico",
+	"version": "2.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "Mod de referência: adiciona o contato ModsBot no dia 1 (via pasta data/) e registra no log quando cada dia começa (via main.gd). Copie esta pasta para começar o seu.",
+	"main_script": "main.gd"
+}
