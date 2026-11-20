@@ -42,6 +42,10 @@ Mods que vêm com o jogo ficam em `res://mods/available/`. Mods instalados por v
 | Internet de Hotel | Sites carregam devagar, travam em 99% e às vezes dão erro | script |
 | Banco Premium™ | CapivaraCoin, passe de batalha, "remover anúncios" e popups | script + `anuncios.json` |
 | Autenticação Nível Máximo | CPF, captchas, pesca, rosto, cartório e pombo-correio | script |
+| Tudo Parece Golpe | Mensagens e emails verdadeiros com cara de golpe | script + `estilo.json` |
+| Histórico Mentiroso | Conversas antigas mostram coisas que você nunca disse | script + `mentiras.json` |
+| Celular em Grego | Todo texto da tela em letras gregas | script |
+| Bateria (que apaga o save) | Bateria que acaba; se zerar, o jogo salvo é apagado | script |
 
 ## Criando um mod
 

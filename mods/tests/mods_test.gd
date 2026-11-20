@@ -55,9 +55,12 @@ func _run() -> void:
 
 	# --- todos os mods
 	var all := PackedStringArray()
-	for m in loader.available_mods: all.append(m.id)
+	# A bateria pode apagar o save de verdade: fica de fora do teste geral
+	for m in loader.available_mods:
+		if m.id != "felipetto.bateria":
+			all.append(m.id)
 	loader.apply_enabled(all)
-	check(loader.active_mods.size() == loader.available_mods.size(), "todos os mods ativos")
+	check(loader.active_mods.size() == all.size(), "todos os mods ativos (menos a bateria)")
 	var dirs = loader.list_subdirectories("res://data/messages")
 	for d in ["presidente", "modsbot", "tia_cleuza", "mae_aflita"]:
 		check(dirs.has("res://data/messages/" + d), "pasta de mensagens do mod: " + d)

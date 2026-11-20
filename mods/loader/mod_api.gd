@@ -202,7 +202,7 @@ func watch_nodes(matches: Callable, callable: Callable) -> void:
 func wrap_labels(matches: Callable) -> void:
 	watch_nodes(func(node: Node) -> bool: return node is Label, func(label: Label) -> void:
 		# A label is drawn again whenever its text changes
-		label.draw.connect(func() -> void: _wrap_label(label, matches), CONNECT_DEFERRED)
+		label.draw.connect(_wrap_label.bind(label, matches), CONNECT_DEFERRED)
 	)
 
 
@@ -219,7 +219,8 @@ static func _identifier(text: String) -> String:
 	return RegEx.create_from_string("[^A-Za-z0-9_]").sub(text, "_", true)
 
 
-func _wrap_label(label: Label, matches: Callable) -> void:
+## label sem tipo: pode chegar já liberado, numa chamada adiada
+func _wrap_label(label, matches: Callable) -> void:
 	if not _is_on or not is_instance_valid(label):
 		return
 	if label.autowrap_mode != TextServer.AUTOWRAP_OFF or not matches.call(label.text):
