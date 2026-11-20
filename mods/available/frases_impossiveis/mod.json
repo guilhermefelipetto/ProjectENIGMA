@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.frases_impossiveis",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Frases Impossíveis",
+	"description": "O minigame de digitar frases para tirar o hacker do celular agora pede trava-línguas, palavras de 40 letras e frases que não acabam nunca. Sem erro de digitação, claro. Dá pra trocar as frases em frases.json.",
+	"main_script": "main.gd"
+}
