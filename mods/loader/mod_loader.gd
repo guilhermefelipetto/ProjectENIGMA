@@ -332,4 +332,41 @@ func apply_filter(filter_name: String, value: Variant, arguments: Array = []) ->
 
 func _register_filter(filter_name: String, callable: Callable) -> void:
 	_filters.get_or_add(filter_name, []).append(callable)
+
+
+## Puts a gate of a mod before what the game does when a button is pressed, see
+## ModAPI.intercept_press()
+func intercept_press(button: BaseButton, api: ModAPI, gate: Callable) -> void:
+	if not button.has_meta("mod_gates"):
+		# Takes over what the game connected to the button, run after the gates
+		var originals: Array = []
+		for connection in button.pressed.get_connections():
+			originals.append(connection["callable"])
+			button.pressed.disconnect(connection["callable"])
+		button.set_meta("mod_original_presses", originals)
+		button.set_meta("mod_gates", [])
+		button.pressed.connect(_on_held_button_pressed.bind(button))
+	var gates: Array = button.get_meta("mod_gates")
+	for entry in gates.duplicate():
+		if entry["api"] == api:
+			gates.erase(entry)
+	gates.append({"api": api, "gate": gate})
+
+
+func _on_held_button_pressed(button: BaseButton) -> void:
+	var gates: Array = button.get_meta("mod_gates", []).filter(func(entry: Dictionary) -> bool:
+		return entry["api"].is_on() and entry["gate"].is_valid()
+	)
+	_run_gate(button, gates, 0)
+
+
+func _run_gate(button: BaseButton, gates: Array, index: int) -> void:
+	if not is_instance_valid(button):
+		return
+	if index >= gates.size():
+		for callable in button.get_meta("mod_original_presses", []):
+			if callable.is_valid():
+				callable.call()
+		return
+	gates[index]["gate"].call(func() -> void: _run_gate(button, gates, index + 1))
 #endregion HOOKS

@@ -44,7 +44,7 @@ func _run() -> void:
 	gd.start_date_dict = Time.get_date_dict_from_system()
 	var previous: PackedStringArray = loader.enabled_ids.duplicate()
 	print("mods:", loader.available_mods.map(func(m): return m.id))
-	check(loader.available_mods.size() == 7, "7 mods descobertos")
+	check(loader.available_mods.size() >= 7, "%d mods descobertos" % loader.available_mods.size())
 
 	# --- sem mods: dados idênticos aos arquivos
 	loader.apply_enabled(PackedStringArray())
@@ -57,7 +57,7 @@ func _run() -> void:
 	var all := PackedStringArray()
 	for m in loader.available_mods: all.append(m.id)
 	loader.apply_enabled(all)
-	check(loader.active_mods.size() == 7, "7 mods ativos")
+	check(loader.active_mods.size() == loader.available_mods.size(), "todos os mods ativos")
 	var dirs = loader.list_subdirectories("res://data/messages")
 	for d in ["presidente", "modsbot", "tia_cleuza", "mae_aflita"]:
 		check(dirs.has("res://data/messages/" + d), "pasta de mensagens do mod: " + d)

@@ -30,6 +30,13 @@ Mods que vêm com o jogo ficam em `res://mods/available/`. Mods instalados por v
 | Amazônia: Catálogo Estendido™ | 26 produtos absurdos em 3 lojas | dados |
 | Códigos Bancários Longos | Todo código Pix/boleto com 120 caracteres | script |
 | Cálculo II™ — Pagamentos | Todo `R$` do jogo (textos, Banco, lojas) vira uma conta gerada | script + filtro |
+| Modo Idoso | Interface gigante durante o jogo, metade dos botões fora da tela | script |
+| Celular de Cabeça para Baixo | O celular inteiro de ponta-cabeça (os toques funcionam) | script |
+| Vírus Minerador de Bitcoin | Cada vírus derruba o FPS e "minera" bitcoin | script |
+| Frases Impossíveis | Trava-línguas no minigame de digitação | script + `frases.json` |
+| Botão Fugitivo | Confirmar/Continuar fogem algumas vezes do clique | script |
+| Centavos Invisíveis | Valores ganham um centavo a cada vez que reaparecem | filtro |
+| Kwanzas Sem Avisar | Do dia 3 em diante as lojas cobram em kwanzas escritos como R$ | script |
 
 ## Criando um mod
 
@@ -93,6 +100,13 @@ de `res://data`. O mod `presidente_golpista` é um exemplo completo de golpe: co
 > resposta, os outros esperam (até 60 min do jogo). Para mensagens que não devem segurar ninguém,
 > crie a conversa sem `entry_points` e envie pelo script com `api.schedule_messages()`.
 
+### Interface
+
+`ModUI` monta peças com a cara do jogo, por código: `ModUI.dialog(tela)` (fundo escuro com um
+cartão no meio, devolve a coluna do cartão), `ModUI.close(coluna)`, `label`, `title`, `button`,
+`progress`, `card_panel`. A fonte do jogo não tem emoji nem símbolos como ⚠ ★ ⚡: use texto ou
+✓ × → • … ₿.
+
 ### `main.gd`
 
 ```gdscript
@@ -109,7 +123,9 @@ func _on_mod_load(mod_api: ModAPI) -> void:
 
 | `ModAPI` | |
 |---|---|
-| `hook(nome, callable)` | `"day_started"` `(story)` depois que os dados do dia são montados; `"clock_tick"` `(minutos, story)` a cada minuto do relógio. |
+| `hook(nome, callable)` | `"day_started"` `(story)` depois que os dados do dia são montados; `"clock_tick"` `(minutos, story)` a cada minuto do relógio; `"screen_opened"` `(app, tela)` sempre que uma tela do celular abre (`app` é um `GameData.App`). |
+| `watch_nodes(condição, callable)` | Roda o `callable(nó)` para cada nó do jogo que passe na `condição(nó)`, os que já existem e os que vierem. |
+| `intercept_press(botão, portão)` | Segura um botão do jogo: ao tocar, roda `portão(prosseguir)` antes; o jogo só faz o que o botão faz se o portão chamar `prosseguir()`. Vários mods podem segurar o mesmo botão. |
 | `filter(nome, callable)` | Muda algo que o jogo vai mostrar. `"money_text"` `(texto, valor)`: todo valor em reais escrito pelo jogo enquanto roda (`GameData.format_brl()`: Banco, saldo, lojas, carrinho, boletos). Retorna o texto a mostrar. |
 | `wrap_labels(callable)` | Todo `Label` do jogo cujo texto passe no `callable(texto) -> bool` passa a quebrar linha em vez de vazar ou ser cortado. Para mods que escrevem textos maiores do que a tela esperava. |
 | `connect_signal(sinal, callable)` | Conecta num sinal do jogo; é desconectado quando o mod é desligado. |

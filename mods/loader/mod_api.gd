@@ -2,9 +2,10 @@ class_name ModAPI
 extends RefCounted
 ## What the script of a mod gets in _on_mod_load() to talk to the game, see mods/README.md
 
-## Hooks the game emits: "day_started" (story_director) once the data of a day is set up, and
-## "clock_tick" (current_minutes, story_director) every minute of the game clock
-const HOOKS := ["day_started", "clock_tick"]
+## Hooks the game emits: "day_started" (story_director) once the data of a day is set up,
+## "clock_tick" (current_minutes, story_director) every minute of the game clock and
+## "screen_opened" (app: GameData.App, screen: Control) whenever a screen of the phone opens
+const HOOKS := ["day_started", "clock_tick", "screen_opened"]
 ## Filters the game runs what it shows through: "money_text" (text, value: float), every amount of
 ## money written by the game (GameData.format_brl()), "R$ 1.480,00"
 const FILTERS := ["money_text"]
@@ -13,6 +14,7 @@ var manifest: ModManifest
 var _loader: Node
 ## False once the mod is turned off, so what it left behind (on labels, say) stops working
 var _is_on := true
+var _watch_count := 0
 
 
 func _init(loader: Node, mod_manifest: ModManifest) -> void:
@@ -173,27 +175,48 @@ func schedule_messages(
 	)
 	# Playing the day again sends them again
 	hook("day_started", func(_story: Node) -> void: state["sent_on"] = -1)
+## Runs a callable for every node of the game that matches, the ones in the tree now and the
+## ones added later, each once
+##
+## matches: func(node: Node) -> bool
+## callable: func(node: Node)
+func watch_nodes(matches: Callable, callable: Callable) -> void:
+	# A node taken out of the tree and put back is added again. A metadata name must be an
+	# identifier, the id of a mod may have dots or dashes
+	var seen_key := "mod_seen_%d_" % _watch_count + _identifier(manifest.id)
+	_watch_count += 1
+	var visit := func(node: Node) -> void:
+		if _is_on and not node.has_meta(seen_key) and matches.call(node):
+			node.set_meta(seen_key, true)
+			callable.call(node)
+	var tree := _loader.get_tree()
+	connect_signal(tree.node_added, visit)
+	for node in tree.root.find_children("*", "", true, false):
+		visit.call(node)
+
+
 ## Makes every label of the game showing a text that matches wrap to more lines, instead of
 ## overflowing its box or being cut, for mods writing texts longer than the game expects
 ##
 ## matches: func(text: String) -> bool
 func wrap_labels(matches: Callable) -> void:
-	var tree := _loader.get_tree()
-	# A label taken out of the tree and put back is added again: it is watched once
-	# A metadata name must be an identifier, the id of a mod may have dots or dashes
-	var watched_key := "mod_wrap_labels_" + RegEx.create_from_string("[^A-Za-z0-9_]").sub(
-		manifest.id, "_", true
+	watch_nodes(func(node: Node) -> bool: return node is Label, func(label: Label) -> void:
+		# A label is drawn again whenever its text changes
+		label.draw.connect(func() -> void: _wrap_label(label, matches), CONNECT_DEFERRED)
 	)
-	var watch := func(node: Node) -> void:
-		if node is Label and not node.has_meta(watched_key):
-			node.set_meta(watched_key, true)
-			# A label is drawn again whenever its text changes
-			var label: Label = node
-			node.draw.connect(func() -> void: _wrap_label(label, matches), CONNECT_DEFERRED)
-	connect_signal(tree.node_added, watch)
-	# The labels already on screen
-	for node in tree.root.find_children("*", "Label", true, false):
-		watch.call(node)
+
+
+## Holds a button of the game: when it is pressed the gate runs first, and what the game does
+## on that press only happens if the gate calls proceed (a confirmation, a delay...). Several
+## mods may hold the same button, one after another. Calling it again replaces the gate
+##
+## gate: func(proceed: Callable)
+func intercept_press(button: BaseButton, gate: Callable) -> void:
+	_loader.intercept_press(button, self, gate)
+
+
+static func _identifier(text: String) -> String:
+	return RegEx.create_from_string("[^A-Za-z0-9_]").sub(text, "_", true)
 
 
 func _wrap_label(label: Label, matches: Callable) -> void:

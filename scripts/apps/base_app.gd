@@ -469,6 +469,8 @@ func _on_app_opened(app:GameData.App, optional_data = null) -> void:
 
 	specific_app.visible = true
 	notification_ui.visible = true
+	# Deferred, so mods see the screen once it is set up and laid out, see mods/README.md
+	ModLoader.emit_hook.call_deferred("screen_opened", [app, specific_app])
 	
 	_update_app_title()
 	_update_inspect_button()
