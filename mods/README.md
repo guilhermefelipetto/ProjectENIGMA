@@ -140,4 +140,4 @@ de quem você confia; o jogo avisa no log quando carrega um.
   `ModLoader.read_json()` para que os mods o alcancem.
 - Hooks: `ModLoader.emit_hook("day_started", [self])` e `"clock_tick"` no `story_director.gd`.
 - Filtros: `ModLoader.apply_filter("money_text", texto, [valor])` no fim de `GameData.format_brl()`.
-- Teste: `flatpak run org.godotengine.Godot --headless --path . -s res://mods/tests/mods_test.gd`
+- Teste: `mods/tests/run.sh` (falha também se o Godot logar algum `ERROR` durante o teste)

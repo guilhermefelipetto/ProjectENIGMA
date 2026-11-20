@@ -180,7 +180,10 @@ func schedule_messages(
 func wrap_labels(matches: Callable) -> void:
 	var tree := _loader.get_tree()
 	# A label taken out of the tree and put back is added again: it is watched once
-	var watched_key := "mod_wrap_labels_%d" % get_instance_id()
+	# A metadata name must be an identifier, the id of a mod may have dots or dashes
+	var watched_key := "mod_wrap_labels_" + RegEx.create_from_string("[^A-Za-z0-9_]").sub(
+		manifest.id, "_", true
+	)
 	var watch := func(node: Node) -> void:
 		if node is Label and not node.has_meta(watched_key):
 			node.set_meta(watched_key, true)

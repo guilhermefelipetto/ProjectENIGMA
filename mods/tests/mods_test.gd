@@ -165,4 +165,5 @@ func _run() -> void:
 
 	loader.apply_enabled(previous)
 	print("FALHAS: %d" % failures)
+	print("FIM DO TESTE")
 	quit(1 if failures else 0)
