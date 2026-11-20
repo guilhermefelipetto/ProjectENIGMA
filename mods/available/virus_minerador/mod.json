@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.virus_minerador",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Vírus Minerador de Bitcoin",
+	"description": "Cada vírus no celular passa a minerar bitcoin pra alguém: o jogo vai ficando travado (menos quadros por segundo) a cada vírus, e um aviso no canto mostra quanto já foi minerado. O antivírus das Configurações limpa tudo e devolve a velocidade.",
+	"main_script": "main.gd"
+}
