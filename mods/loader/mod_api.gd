@@ -133,7 +133,8 @@ func filter(filter_name: String, callable: Callable) -> void:
 ## and nothing waits for an answer. The conversation must exist in res://data/messages
 ##
 ## story: The story director, as the hooks give it
-## texts: Each message, sent in order
+## texts: Each message, sent in order: a text, or {"text", "typing_seconds"} to say how long
+## the contact stays "typing..." before it
 ## typing: Whether the contact shows as typing first, as long as the text asks for (see
 ## GameData.get_human_typing_time()), or else the messages come one second apart
 func send_messages(story: Node, conversation_id: String, texts: Array, typing := true) -> void:
@@ -143,16 +144,19 @@ func send_messages(story: Node, conversation_id: String, texts: Array, typing :=
 		return
 	var contact: Dictionary = messages._get_contact(conversation_id)
 	var setup_at_start: int = messages.setup_count
-	for text in texts:
+	for item in texts:
+		var text := str(item["text"]) if item is Dictionary else str(item)
 		if typing:
 			messages.npc_message_created.emit(contact)
-		var wait: float = GameData.get_human_typing_time(str(text)) if typing else 1.0
+		var wait: float = GameData.get_human_typing_time(text) if typing else 1.0
+		if item is Dictionary and item.has("typing_seconds"):
+			wait = float(item["typing_seconds"])
 		await story.get_tree().create_timer(wait).timeout
 		# The day ended meanwhile
 		if not is_instance_valid(messages) or messages.setup_count != setup_at_start:
 			return
 		messages.npc_message_sent.emit(
-			contact, str(text), {}, GameData.Sender.NPC, GameData.hours_minutes
+			contact, text, {}, GameData.Sender.NPC, GameData.hours_minutes
 		)
 
 

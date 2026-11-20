@@ -26,7 +26,7 @@ Mods que vêm com o jogo ficam em `res://mods/available/`. Mods instalados por v
 | Exemplo Básico | Contato ModsBot no dia 1 e log a cada dia | dados + script (modelo para copiar) |
 | Presidente do Brasil te pede PIX | Golpe do falso presidente no dia 2, denunciável | dados |
 | Notificações Simultâneas do Caos | 4 contatos te escrevendo ao mesmo tempo no dia 2 | script + `roteiro.json` |
-| Tia do WhatsApp™ | Correntes gigantes nos dias 1, 3 e 5 | script + `roteiro.json` |
+| Família do WhatsApp™ | Correntes gigantes da Tia e 4 minutos de "digitando..." do Tio | script + `roteiro.json` |
 | Amazônia: Catálogo Estendido™ | 26 produtos absurdos em 3 lojas | dados |
 | Códigos Bancários Longos | Todo código Pix/boleto com 120 caracteres | script |
 | Cálculo II™ — Pagamentos | Todo `R$` do jogo (textos, Banco, lojas) vira uma conta gerada | script + filtro |
@@ -140,7 +140,7 @@ func _on_mod_load(mod_api: ModAPI) -> void:
 | `connect_signal(sinal, callable)` | Conecta num sinal do jogo; é desconectado quando o mod é desligado. |
 | `patch_json(padrão, callable)` | Muda um JSON do jogo sempre que é lido, depois da mescla. `padrão` aceita `*` (`"res://data/emails/*"`). O callable recebe `(dados, caminho)` e altera no lugar ou retorna um novo valor. |
 | `patch_story_text(callable)` | Reescreve todo texto de mensagens, respostas e emails. |
-| `send_messages(story, conversa, textos, digitando := true)` | Um contato manda mensagens agora, por fora da fila da história. |
+| `send_messages(story, conversa, textos, digitando := true)` | Um contato manda mensagens agora, por fora da fila da história. Cada item é um texto ou `{"text", "typing_seconds"}`. |
 | `schedule_messages(dia, minutos, conversa, textos, digitando := true)` | O mesmo, uma vez no dia (`-1` = todo dia) aos `minutos` depois das 08:00. |
 | `read_json(caminho)` | Lê um JSON do jogo como os mods ativos deixam. |
 | `read_mod_json(relativo)` / `path(relativo)` | Arquivos do próprio mod. |
