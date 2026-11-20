@@ -1,0 +1,18 @@
+{
+	"id": "felipetto.botao_fugitivo",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Botão Fugitivo",
+	"description": "Os botões de Confirmar, Continuar e Fechar Pedido fogem do mouse (e do dedo) algumas vezes antes de aceitar o clique. Quantas vezes e quais botões, ajustável em \"config\".",
+	"config": {
+		"flees": 3,
+		"buttons": [
+			"Confirmar",
+			"Continuar",
+			"Fechar Pedido"
+		]
+	},
+	"main_script": "main.gd"
+}
