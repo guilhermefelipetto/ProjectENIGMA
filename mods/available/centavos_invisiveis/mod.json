@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.centavos_invisiveis",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Centavos Invisíveis",
+	"description": "Cada vez que um valor aparece de novo na tela, ele pode ter subido um centavo. Você viu R$ 19,00? Agora é R$ 19,01. Depois R$ 19,03. Ninguém comenta. Só a exibição muda: o Banco cobra o valor certo. Mas compare valores com cuidado, o Banco também mostra os centavos a mais.",
+	"main_script": "main.gd"
+}
