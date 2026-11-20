@@ -1,0 +1,13 @@
+{
+	"id": "felipetto.cabeca_para_baixo",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Celular de Cabeça para Baixo",
+	"description": "O celular inteiro aparece de cabeça para baixo durante o jogo. Os toques continuam funcionando (no lugar certo, de ponta-cabeça). Vire o monitor, ou o pescoço.",
+	"config": {
+		"degrees": 180
+	},
+	"main_script": "main.gd"
+}
