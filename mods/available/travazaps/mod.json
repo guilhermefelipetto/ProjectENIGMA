@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.travazaps",
+	"name": "Tia do WhatsApp™",
+	"version": "2.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "A Tia Cleuza manda os clássicos: bom dia abençoado de 300 palavras, corrente de São Longuinho e o copypasta do chip na vacina. Cada um leva o tempo REAL de ser digitado ('digitando...' por quase um minuto). Ela escreve por fora da fila da história, então só a sua paciência trava.",
+	"main_script": "main.gd"
+}
