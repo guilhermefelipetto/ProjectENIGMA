@@ -49,6 +49,8 @@ Mods que vêm com o jogo ficam em `res://mods/available/`. Mods instalados por v
 | Tocafunk | Rádio de funk-forró sintetizado que não desliga | script + `synth.gd` |
 | Crush do Dia | App de namoro: esposa do chefe, golpe do amor, perfil falso e um match honesto | dados |
 | Skin Anos 2000 | Títulos azuis, janelas bege e barra de tarefas com "iniciar" | script |
+| XFilmes Grátis | Site "grátis" no Navegador: abrir já hackeia o celular, depois ensina a reconhecer | script |
+| Blocolândia | App novo: mundinho de blocos para colocar e quebrar, com o céu seguindo o relógio | script + `world.gd` + `textures.gd` |
 
 ## Criando um mod
 

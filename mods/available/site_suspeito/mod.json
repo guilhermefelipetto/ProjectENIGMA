@@ -1,0 +1,13 @@
+{
+	"id": "felipetto.site_suspeito",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "XFilmes Grátis",
+	"description": "Aparece no Navegador um site de filmes \"grátis e sem cadastro\" de endereço esquisito. Basta abrir: popups, um player que pede para instalar, e o celular é hackeado na hora, com vírus de brinde. No fim, a dica de como reconhecer esse tipo de site.",
+	"main_script": "main.gd",
+	"config": {
+		"viruses": 12
+	}
+}

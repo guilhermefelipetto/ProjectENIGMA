@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.blocolandia",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Blocolândia",
+	"description": "Um app novo na tela inicial: um mundinho de blocos visto de lado, com morros, árvores e uma prainha. Toque no ar para colocar o bloco escolhido (arrastar vai colocando) e segure num bloco para quebrar. A areia cai, e o céu segue o relógio do jogo: o expediente continua enquanto você constrói.",
+	"main_script": "main.gd"
+}
