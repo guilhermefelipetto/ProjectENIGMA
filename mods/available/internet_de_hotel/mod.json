@@ -1,0 +1,15 @@
+{
+	"id": "felipetto.internet_de_hotel",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Internet de Hotel",
+	"description": "Todo site do Navegador demora para carregar: a barra anda, trava em 99%, e às vezes termina num \"Erro desconhecido\" para você tentar de novo. Tempos e chance de erro ajustáveis em \"config\" (quer realismo? coloque max_seconds em 240).",
+	"config": {
+		"min_seconds": 4,
+		"max_seconds": 14,
+		"error_chance": 0.3
+	},
+	"main_script": "main.gd"
+}
