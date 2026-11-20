@@ -1,0 +1,15 @@
+{
+	"id": "felipetto.calculo_2_pagamentos",
+	"name": "Cálculo II™ — Pagamentos",
+	"version": "2.1.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "Todo valor em reais do jogo vira uma conta gerada na hora: mensagens, emails, notas, e também o Banco, o saldo, as lojas, o carrinho e os boletos. A conta é uma árvore de operações (+ − × ÷ ² √ ∫ Σ) e o número original nunca aparece. A mesma quantia vira sempre a mesma conta, então a regra 'Valor diferente do combinado' ainda funciona, só que agora com matemática. Os centavos ficam como estão. Dificuldade ajustável em \"config\": max_depth (níveis de conta, 1 a 4) e max_length (tamanho máximo).",
+	"priority": 20,
+	"main_script": "main.gd",
+	"config": {
+		"max_depth": 2,
+		"max_length": 48
+	}
+}
