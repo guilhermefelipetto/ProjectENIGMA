@@ -37,6 +37,11 @@ Mods que vêm com o jogo ficam em `res://mods/available/`. Mods instalados por v
 | Botão Fugitivo | Confirmar/Continuar fogem algumas vezes do clique | script |
 | Centavos Invisíveis | Valores ganham um centavo a cada vez que reaparecem | filtro |
 | Kwanzas Sem Avisar | Do dia 3 em diante as lojas cobram em kwanzas escritos como R$ | script |
+| Banco Sincero | O Banco opina sobre cada pagamento e exige 14 termos | script + `textos.json` |
+| Atualização Surpresa | Atualização no meio do pagamento cancela e embaralha a tela | script |
+| Internet de Hotel | Sites carregam devagar, travam em 99% e às vezes dão erro | script |
+| Banco Premium™ | CapivaraCoin, passe de batalha, "remover anúncios" e popups | script + `anuncios.json` |
+| Autenticação Nível Máximo | CPF, captchas, pesca, rosto, cartório e pombo-correio | script |
 
 ## Criando um mod
 
