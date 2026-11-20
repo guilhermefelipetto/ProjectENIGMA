@@ -1,0 +1,10 @@
+{
+	"id": "felipetto.tocafunk",
+	"name": "Tocafunk",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"description": "Uma rádio de funk-forró no rodapé do celular: tamborzão, zabumba, triângulo e sanfona, sintetizados na hora. Uma vez ligada, não desliga mais: o botão de pausar dá desculpas, o \"-\" aumenta o volume e mutar a música do jogo não adianta. Só desligando o mod no menu.",
+	"main_script": "main.gd"
+}
