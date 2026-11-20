@@ -1,0 +1,13 @@
+{
+	"id": "felipetto.modo_idoso",
+	"version": "1.0.0",
+	"authors": [
+		"Guilherme Felipetto"
+	],
+	"name": "Modo Idoso",
+	"description": "Durante o jogo, tudo fica enorme (o equivalente a fonte 48). Ótimo para ler. Metade dos botões fica fora da tela, mas pelo menos dá para ler. O tamanho é ajustável em \"config\". O menu e a tela MODS continuam normais, para você conseguir desligar.",
+	"config": {
+		"scale": 1.8
+	},
+	"main_script": "main.gd"
+}
