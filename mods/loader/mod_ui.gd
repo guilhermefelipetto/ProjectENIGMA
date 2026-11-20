@@ -23,6 +23,9 @@ const SHADE := Color(0.06, 0.08, 0.12, 0.55)
 ##
 ## parent: Onde cobrir: a tela de um app (cobre só ela) ou a raiz do jogo (cobre tudo)
 static func dialog(parent: Control, width := 300.0) -> VBoxContainer:
+	# Um container organizaria o fundo como mais uma linha: cobre o primeiro pai que não é um
+	while parent is Container and parent.get_parent() is Control:
+		parent = parent.get_parent()
 	var overlay := ColorRect.new()
 	overlay.color = SHADE
 	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
